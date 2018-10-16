@@ -97,6 +97,6 @@ if __name__== '__main__':
     parse.add_argument('--lr',type=float,default=0.125,help='the learning rate')
     parse.add_argument('--number_xuanzhuang',type=float,default=128,help='the number of pretrain')
     args = parse.parse_args()
-    image_path = '/home/lyc/mosse-object-tracking/datasets/surfer'
+    image_path = '/home/lyc/OTB-100/OTB-100/Benchmark1/Basketball/img'
     tracker = mosse(args,image_path)
     tracker.track()
