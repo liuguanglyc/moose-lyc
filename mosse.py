@@ -23,7 +23,6 @@ class mosse:
         cv2.imshow('1', init_gt_show)
         cv2.waitKey(100)
         f = init_frame[gt[1]:gt[1]+gt[3],gt[0]:gt[0]+gt[2]]
-
         Ai, Bi = self.pro_training( f ,init_gt)
 
         for i in range(len(self.img_list)):
