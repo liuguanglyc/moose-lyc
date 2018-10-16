@@ -3,7 +3,7 @@ import cv2
 
 def preprocessing(image):
     height , weight =image.shape
-    image = np.log(image+0.1)
+    image = np.log(image+1)
     image = (image - np.mean(image)) / (np.std(image) + 1e-5)
     image = coswindows(image, height, weight)
     return image
@@ -35,8 +35,11 @@ def normal(image) :
     return a*image+b
 
 def random_xuanzhuang(image) :
-    b = image.shape
-    a = np.random.uniform((10))
+    #b = image.shape
+    a = np.random.uniform(-20,20)
+    #a = -180 / 16
+    #b = 180 / 16
+    #r = a + (b - a) * np.random.uniform()
     M = cv2.getRotationMatrix2D((image.shape[1]/2,image.shape[0]/2),a,1)
     image = cv2.warpAffine(np.uint8(image*255), M, (image.shape[1],image.shape[0]))
     return (image.astype(np.float32)/255)
